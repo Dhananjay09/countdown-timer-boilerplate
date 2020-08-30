@@ -3,7 +3,7 @@ class CountdownForm extends React.Component {
      onSubmit(e) {
         var secondsStr = this.refs.seconds.value; 
         this.props.onSetCountdownTime(secondsStr)
-        
+        this.refs.seconds.value="";
         e.preventDefault()
     }
     render() {
