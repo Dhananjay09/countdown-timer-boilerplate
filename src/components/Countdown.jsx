@@ -8,6 +8,7 @@ class Countdown extends React.Component {
             count:0
         }
         this.update=this.update.bind(this)
+        this.resetstate=this.resetstate.bind(this)
     }
     update(count){
         this.setState({
@@ -15,12 +16,17 @@ class Countdown extends React.Component {
         })
         
     }
+    resetstate(count){
+        this.setState({
+            count: 0
+        })
+    }
+
     render() {
         
         return (
             <div>
-                { this.state.count!==0 ?  <Clock timeInSeconds={this.state.count}/> : <h1>00:00</h1>}
-               
+                { this.state.count!==0 ?  <Clock timeInSeconds={this.state.count} resettime={this.resetstate}/> : <h1>00:00</h1>}
                 <CountdownForm onSetCountdownTime={this.update}/>
             </div>
         );
